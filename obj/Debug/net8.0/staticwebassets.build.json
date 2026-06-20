@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "304kiTkNH7GtQZZhDnoUYS3WNVMgdv1zYBS+bCpv9mA=",
+  "Source": "SchoolApp",
+  "BasePath": "_content/SchoolApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SchoolApp/wwwroot",
+      "Source": "SchoolApp",
+      "ContentRoot": "/home/azureuser/SchoolApp/wwwroot/",
+      "BasePath": "_content/SchoolApp",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/azureuser/SchoolApp/wwwroot/css/site.css",
+      "SourceId": "SchoolApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/azureuser/SchoolApp/wwwroot/",
+      "BasePath": "_content/SchoolApp",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/site.css"
+    }
+  ]
+}
