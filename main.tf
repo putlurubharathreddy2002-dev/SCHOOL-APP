@@ -3,13 +3,9 @@
 provider "azurerm" {
   features {}
 
-   client_id       = "eb4d88bc-971c-478d-9052-3cc610fd073a"
-  client_secret   = "FrV8Q~_qFyei1CzKLswxmanuL1oA9b.b7RhpcbiM"
-  tenant_id       = "03f6aa67-8de0-47d2-b710-17e1c6a94abd"
-  subscription_id = "82b7bdb0-c76e-42e1-ba52-08b1cc4c082e"
+            
+
 }
-
-
 
 resource "azurerm_resource_group" "rg" {
   name     = "schoolapp-rg"
@@ -170,8 +166,8 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   resource_group_name    = azurerm_resource_group.rg.name
   location               = azurerm_resource_group.rg.location
 
-  administrator_login    = "Reddy2004"
-  administrator_password = "Bhararath@2002"
+  administrator_login    = "var.adimin"
+  administrator_password = "var.adminpassword"
 
   version                = "8.0.21"
 
