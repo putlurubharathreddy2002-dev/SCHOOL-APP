@@ -24,7 +24,8 @@ git clone https://github.com/putlurubharathreddy2002-dev/SCHOOL-APP.git .
 
 dotnet restore
 
-nohup env ASPNETCORE_URLS=http://0.0.0.0:5000 dotnet run > /opt/schoolapp/app.log 2>&1 &
+# Run application on Port 80
+nohup env ASPNETCORE_URLS=http://0.0.0.0:80 dotnet run > /opt/schoolapp/app.log 2>&1 &
 
 systemctl enable nginx
 systemctl start nginx
