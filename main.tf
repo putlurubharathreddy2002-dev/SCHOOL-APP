@@ -166,8 +166,8 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   resource_group_name    = azurerm_resource_group.rg.name
   location               = azurerm_resource_group.rg.location
 
-  administrator_login    = "var.adimin"
-  administrator_password = "var.adminpassword"
+  administrator_login    = "Reddy2004"
+  administrator_password = "Bharath@2002"
 
   version                = "8.0.21"
 
