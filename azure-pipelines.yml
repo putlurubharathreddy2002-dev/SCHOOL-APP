@@ -7,11 +7,16 @@ pool:
 variables:
   imageRepository: 'schoolapp'
   containerRegistry: 'schoolapp-acr'
+  kubernetesServiceConnection: 'schoolapp-aks'
   dockerfilePath: 'Dockerfile'
-  tag: '$(Build.BuildId)'
+  imageTag: '$(Build.BuildId)'
 
 steps:
 
+# Checkout source
+- checkout: self
+
+# Build & Push Docker Image
 - task: Docker@2
   displayName: Build and Push Docker Image
   inputs:
@@ -20,15 +25,20 @@ steps:
     dockerfile: $(dockerfilePath)
     containerRegistry: $(containerRegistry)
     tags: |
-      $(tag)
+      $(imageTag)
       latest
 
+# Update Deployment Image
+- script: |
+    sed -i "s|schoolapp2002.azurecr.io/schoolapp:.*|schoolapp2002.azurecr.io/schoolapp:$(imageTag)|g" k8s/deployment.yaml
+  displayName: Update Image Tag
+
+# Deploy to AKS
 - task: KubernetesManifest@1
   displayName: Deploy to AKS
   inputs:
     action: deploy
+    kubernetesServiceConnection: $(kubernetesServiceConnection)
     manifests: |
       k8s/deployment.yaml
       k8s/service.yaml
-    containers: |
-      schoolapp2002.azurecr.io/schoolapp:$(tag)
