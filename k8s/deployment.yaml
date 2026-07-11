@@ -16,4 +16,4 @@ spec:
       - name: schoolapp
         image: schoolapp2002.azurecr.io/schoolapp:latest
         ports:
-        - containerPort: 80
+        - containerPort: 5000
