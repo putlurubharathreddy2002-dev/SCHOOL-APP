@@ -27,6 +27,20 @@ steps:
     tags: |
       $(imageTag)
       latest
+      
+# Install Trivy
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y wget
+    wget https://github.com/aquasecurity/trivy/releases/download/v0.72.0/trivy_0.72.0_Linux-64bit.deb
+    sudo dpkg -i trivy_0.72.0_Linux-64bit.deb
+    trivy --version
+  displayName: Install Trivy
+
+# Scan Docker Image
+- script: |
+    trivy image --severity HIGH,CRITICAL --exit-code 0 schoolapp2002.azurecr.io/schoolapp:$(Build.BuildId)
+  displayName: Scan Docker Image with Trivy
 
 # Update Deployment Image
 - script: |
